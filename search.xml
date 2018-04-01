@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F04%2F01%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[IDEA使用技巧]]></title>
+    <url>%2F2018%2F01%2F01%2FIDEA%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[VS Code使用指南]]></title>
+    <url>%2F2018%2F01%2F01%2FVS-Code%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Wordpress博客搭建]]></title>
+    <url>%2F2017%2F12%2F31%2FWordpress%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[博客搭建]]></title>
+    <url>%2F2017%2F12%2F31%2F%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[前言&ensp;&ensp;&ensp;&ensp;早在几年前就有一个搭建自己博客的计划，当时还没有来计算机也没有系统的学习计算机相关的知识，缺乏很多知识储备，只能借助于新浪博客之类的一些东西，自己也在上面写了一些东西，但最后都不了了之了。现在我已经有了这个能力搭建一个属于一个自己的博客，由于自己的拖延症一直拖到现在才开始动手，最开始的计划是用My-Blog来进行搭建，这是一个用springboot写的博客项目，经过几天的使用下来，发现存在很多问题，其中之一就是功能过于简陋，有一些需求无法满足。仔细思考一下我需要的博客是这个样子： 支持markdown语法书写博客 支持代码高亮，毕竟我是一个程序员 有漂亮的主题在这之后经过一番调研，可以用来作为私人博客的产品有如下这些: Hexo博客，这是一个静态的博客。什么是静态博客呢？静态博客指的是博客系统没有后台，不需要数据库只由html,css以及js组成。 优点： 搭建简单 缺点： 相对于动态博客来说，有一些功能缺乏 Hexo博客的搭建参考这里 WordPress博客，这是一个PHP做的产品。 优点： 使用人数众多 功能齐全 丰富的插件 丰富的主题 缺点： 整个系统过于臃肿 各种插件质量参差不齐，插件之间相互可能有冲突，插件和博客之间时常版本不兼容； 原生不支持markdown语法，没有个几个好的支持markdown的插件 WordPress博客的搭建参考这里：WordPress博客搭建 Ghost博客，这个是wordpress前员工做的东西，用的是nodejs。 优点: 支持markdown语法缺点: 部署复杂 功能简单，我要用这个我为什么不用Hexo呢？ Ghost博客的搭建参考这里：Ghost博客搭建 这里假设你已经具备如下的知识： 知道如何购买了一台云主机(VPS)，阿里云/腾讯云随意。学生党可以去淘宝去找更便宜的云主机提供商，我用的是速云。 知道如何购买了一个域名，我购买域名用的的网站是Godaddy。 熟悉基本的Linux命令的使用，如： 1cd、yum、wget、ps、vim]]></content>
+      <tags>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git常用使用场景备忘]]></title>
+    <url>%2F2017%2F12%2F31%2FGit%E5%B8%B8%E7%94%A8%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%2F</url>
+    <content type="text"><![CDATA[前言这篇文章总结的是常用的Git使用场景，需要有一定的Git基础。关于Git基础的学习推荐一本书 《Pro Git》 不管学习什么命令一是要学会帮助命令的查看，二是要结合具体的使用场景 12git rm --helpgit reflog --help git的基本模型: 一般仓库中的文件可能存在于这三种状态,可以利用git status查看 Untracked files → 文件未被跟踪(即working tree里面存在但是local repository里面不存在) Changes to be committed → 文件已暂存，这是下次提交的内容(即index里面存在但是local repository里面不存在) Changes not staged for commit → 文件被修改，但并没有添加到暂存区。如果 commit 时没有带 -a 选项，这个状态下的文件不会被提交(即working tree里面修改过但是index里面还没有反应) working tree：就是你所工作在的目录，每当你在代码中进行了修改，working tree的状态就改变了。index file：是索引文件，它是连接working tree和commit的桥梁，每当我们使用git-add命令来登记后，index file的内容就改变了，此时index file就和working tree同步了。commit：是最后的阶段，只有commit了，我们的代码才真正进入了git仓库。我们使用git-commit就是将index file里的内容提交到commit中。总结一下： git diff：是查看working tree与index file的差别的。 git diff –cached：是查看index file与commit的差别的。 git diff HEAD：是查看working tree和commit的差别的。（HEAD代表的是最近的一次commit的信息） 常用使用场景1. 从命令行创建一个新的仓库12345678910mkdir templatecd templatetouch README.mdgit initgit add README.mdgit commit -m "first commit"#加入远程仓库git remote add origin [url]#推送到远程仓库git push -u origin master 2. 从命令行推送已经创建的仓库12git remote add origin [url]git push -u origin master 3. 删除远程仓库文件但不删除本地资源 在idea里面正规的java项目目录:src/pom.xml.gitignore 123456#第一步:把xxx.iml加到`.gitignore`里面忽略掉#-r 是递归的意思，针对于文件夹。--cached指的是移出暂存区的内容git rm -r --cached *.imlgit commit -m "ignore xxx.iml"git push origin master 4. Git clone远程指定分支简单做法: 12#只拷贝远程的dev分支下来,其他分支不会被拷贝git clone -b dev [url] 一般做法: 123456#拷贝master分支git clone [url]#利用远程分支新建本地分支git checkout -b dev origin/devgit checkout dev#在idea git插件里面操作:选择远程分支-&gt;check as new local branch 5.撤销操作撤销所有未提交的修改 1234#这条命令会把工作目录中未提交的内容清空（不包括未置于版本控制下的文件git reset --hard HEAD#撤销所有未提交的修改git checkout . 撤销某个（某类）文件未提交的修改 12git checkout filenamegit checkout *.java ==撤销已经提交的修改== 在新的提交里面撤销老的提交的更改: 1234567#git revert会创建一次新的提交#撤销本次提交git revert HEAD#撤销上次提交git revert HEAD^#撤销某次提交,commit id代表某次提交git revert [commit id] 直接修改老的提交(不要对已经发布的版本这么做，==为什么?==)git reset [--hard|soft|mixed|merge|keep] [&lt;commit&gt;或HEAD]：将当前的分支重设（reset）到指定的&lt;commit&gt;或者HEAD –hard：重设（reset） index(暂存区)和working directory(工作目录)，自从commit id以来在working directory中的任何改变都被丢弃，并把HEAD指向commit –soft：index和working directory中的内容不作任何改变，仅仅把HEAD指向commit id。这个模式的效果是，执行完毕后，自从commit以来的所有改变都会显示在git status的”Changes to be committed”中 6. reset和revert的区别 git reset –hard [commit id]表示==返回到==commit id代表的提交例如: git reset HEAD~1 重置到上一次提交,撤销本次提交但是:git revert [commit id]表示撤销commit id代表的提交例如:git revert HEAD就会撤销当前提交 1. 上面我们说的如果你已经push到线上代码库, reset 删除指定commit以后,你git push可能导致一大堆冲突.但是revert 并不会. 2. 如果在日后现有分支和历史分支需要合并的时候,reset 恢复部分的代码依然会出现在历史分支里.但是revert 方向提交的commit 并不会出现在历史分支里. 3. reset 是在正常的commit历史中,删除了指定的commit,这时 HEAD 是向后移动了,而 revert 是在正常的commit历史中再commit一次,只不过是反向提交,他的 HEAD 是一直向前的. 7. 自己的修改和别人的修改冲突了怎么办？解决方法一 1234567#退回到最近一次的commitgit reset --hard HEAD#重命名自己本地的分支git branch -m dev my-dev#利用远程分支新建一本地分支git branch -t dev origin/dev#手工将dev和my-dev进行合并 解决方法2: 123git fetch origin dev:local-devgit merge local-dev#解决冲突 8. pull request是什么意思？举个例子: 想想我们中学考试，老师改卷的场景吧。你做的试卷就像仓库，你的试卷肯定会有很多错误，就相当于程序里的 bug。老师把你的试卷拿过来，相当于先 fork。在你的卷子上做一些修改批注，相当于 git commit。最后把改好的试卷给你，相当于发 pull request，你拿到试卷重新改正错误，相当于 merge。 当你想更正别人仓库里的错误时，要走一个流程： 1. 先 fork 别人的仓库，相当于拷贝一份，相信我，不会有人直接让你改修原仓库的 2. clone 到本地分支，做一些 bug fix 3. 发起 pull request 给原仓库，让他看到你修改的 bug 4. 原仓库 review 这个 bug，如果是正确的话，就会 merge 到他自己的项目中至此，整个 pull request 的过程就结束了。 参考: pull request是什么意思? 9. 有时为了保存多个工作状态，会使用多次commit （4次），将状态提交到本地仓库，但是在完成编码后，本想git push 最后的状态给时，本地的每次提交都会在远程仓库也有一个对应的提交（也有4次），造成服务器上出现不必要的版本， 如何处理此问题？使得本地4次，远程1次？做法:首先git log 查看最后一次的commit id， 直接git reset –soft commit id ， 让头部退回， 但是index 和 working dir 保持最新。再次直接commit 即可。 10. git rebase的作用是什么？git rebase翻译过来叫做衍和,它用于产生更加整洁的提交历史，使得看起来就像在一个分支上进行的工作一样。 例子:假设有两个分支master何topic,我们当前处于==topic分支==之上。 123 A---B---C topic /D---E---F---G master 执行 123git rebase master#或者git rebase master topic 之后变为: 123 A&apos;--B&apos;--C&apos; topic /D---E---F---G master rebase使用注意事项: 把衍合当成一种在推送之前清理提交历史的手段，而且仅仅衍合那些永远不会公开的 commit]]></content>
+      <tags>
+        <tag>基本命令学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git常用使用场景备忘]]></title>
+    <url>%2F2017%2F12%2F31%2F%E5%9B%BE%E7%89%87%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[七牛]]></content>
+      <tags>
+        <tag>基本命令学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年计划]]></title>
+    <url>%2F2017%2F12%2F31%2F2018%E5%B9%B4%E8%AE%A1%E5%88%92%2F</url>
+    <content type="text"><![CDATA[年年岁岁花相似，岁岁年年人不同～ 计划买的东西 一台高配的台式机 彻底更新一下外套 买一台PS4(Pro) 计划看的小说 《银河帝国》全系列 《机器人》全系列 大刘剩下的作品补完 《赛博利安的陨落》 计划玩的游戏 通关《塞尔达传说：荒野之息》 通关《巫师3》 通关《黑暗之魂3》 《马里奥：奥德赛》 《女神异闻录5》 《尼尔机械纪元》 《刺客信条：起源》 《异度之刃》 《血缘诅咒》 《》还有一系列的独立游戏～ 计划学习的技术 计算机图形学 Unreal开发技术 Go语言 计划考的证书 教师资格证 英语等级证书]]></content>
+      <tags>
+        <tag>生活总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MVC引入SERVICE层 提高代码重用性 沟通CONTROL和MODEL]]></title>
+    <url>%2F2017%2F12%2F30%2FMVC%E5%BC%95%E5%85%A5SERVICE%E5%B1%82-%E6%8F%90%E9%AB%98%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8%E6%80%A7-%E6%B2%9F%E9%80%9ACONTROL%E5%92%8CMODEL%2F</url>
+    <content type="text"><![CDATA[MVC是web开发中常见的程序结构。简单的mvc结构如下：view层：显示层。control层：业务层，集合了各种action。model层：模型层，一般和数据打交道。简单的sample：一个表对应一个model类。其中control层调用model层的方法，实现对数据的访问。 采用这样的结构在一定程度上，可以做到代码清晰，较容易扩展，代码的管理复杂度较低。但是如果是业务很多，逻辑又很复杂的网站，如果再加上开发人员的水平参差不齐，那必然会导致下面的情况： action中的代码越来越长，逻辑越来越复杂，不同action之间看起来有很多可以重用的代码， 但是真要进行重构的话，又非常困难。 model层中包含的方法越来越多，有些方法也过于复杂。甚至在不少方法中还包含了业务逻辑。 代码的修改，还是牵一发而动全身。 代码难以进行自动化测试。 本来以为引入了mvc，程序的管理复杂度问题就高枕无忧了，但现在又面临了相同的问题了。 以我最近的所学看，在mvc中再引入service层，可以在很大程度上避免或者缓解上述问题。原有的mvc结构改成如下： view层：显示层。 control层：业务层，集合了各种action。 service层。 DAO层。原来的model层不见了，增加了service层和DAO层。DAO，即Data Access Object，数据访问接口，数据访问：顾名思义就是与数据库打交道。 在这个结构中，control不直接和DAO联系，需要操作数据的时候，通过service层访问DAO层来实现。service层做的事情，不仅仅是调用DAO操作数据，还会包含了一定的业务逻辑。整个程序的设计，也变成了针对服务进行设计。 这样做的好处是： control层中的action得以精简，因为action中的一些逻辑，被重构成一个个的服务。而不同的action也可以重用服务了。 只负责和数据打交道的DAO层，相比之前的model层，也得以精简（DAO层尽量只做最原子的数据操作，不同数据操作之间的联系，这边不考虑，那是service层的事情）。 service层可以实现很大程度上的代码复用，程序的功能封装更清晰了。 由于service层更加清晰的定义了应用程序的边界，那么对于各个service函数（对应某个服务/应用），要做到自动化测试就方便多了。WEB程序如何做到能方便的进行单元测试，这是一直困扰我的难题，这样的设计似乎真的可行了~ 开发人员的工作分配，理论上真的可以按层次划分了。只是理论上~ 同时，这样的设计模式也是存在一定的缺点的：层次太多，刚接触的开发人员理解起来比简单的mvc结构费时；service层的设计需要一定的功力，因为action中和model层的逻辑在很大程度上转移到这里了。 但整体上看，service Layer的引入，更加清晰的定义了应用程序的边界，提供了一系列可以重用的操作集合。这对于网站的可扩展性和可维护性是非常有帮助的。]]></content>
+      <tags>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ghost1.8博客搭建]]></title>
+    <url>%2F2017%2F12%2F30%2FGhost1-8%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[请注意Ghost博客的1.8版本官方提供了一个Ghost博客的安装工具叫做:ghost-cli，此工具有一些Bug，安装过程会出一些很棘手的问题，不建议用次工具 环境搭建安装Node&ensp;&ensp;&ensp;&ensp;我购买云主机上安装的CentOS系统，由于CentOS安装源上面的nodejs版本太低，所以最好用用其他方法来安装一个更高版本的nodejs。Linux的使用经验告诉我们，最好不要选择自己编译安装，（高版本的nodejs编译需要高版本的gcc，我们又要去安装高版本的gcc，gcc的安装又是一个复杂的话题，总之问题无穷尽也）。下面我们采用两种方法来安装nodejs 我们这里采用nodejs的一个版本管理工具叫做nvm来安装nodejs。这样安装的nodejs方便管理，可在机器上安装各个版本的nodejs并可随意切换。但是请注意如果随后你采用ghost-cli来安装Ghost博客的话，请不要用此方法，原因参考这里 1wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash 运行下列命令检查nvm是否安装成功 1nvm --version 接下来我们就来安装nodejs，我选择安装nodejs的v0.12.18本版运行下列命令: 1nvm install 0.12.18 之后运行下面的命令检查nodejs的安装是否完成 1node -v 下面是nvm操作的一些基本命令： 123456789#安装最新稳定把本的nodejsnvm install stable#列举机器上已经安装的nodejs版本nvm list#安装特定的nodejs版本nvm install 0.12.18#卸载特定的nodejs版本nvm deactivate 0.12.18nvm uninstall 0.12.18 采用nodejs官方推荐的方法安装，那么好的方法国内很多博客都没有提过。 12345curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -sudo yum -y install nodejssudo yum install gcc-c++ make #可选 这里我们要用淘宝的cpm代替原有的npm，否则某些安装包下载不了 1npm install -g cnpm --registry=https://registry.npm.taobao.org 安装nginxnginx起一个反向代理的作用首先在/etc/yum.repos.d/目录下创建一个源配置文件nginx.repo 1vim /etc/yum.repos.d/nginx.repo 写入以下内容： 12345[nginx] name=nginx repo baseurl= http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 初始化过后执行下列命令： 1234#安装yum install nginx -y#检查是否安装成功nginx -v 在安装完成nginx之后需要修改nginx的配置文件，nginx的配置文件位于/etc/nginx/conf.d下面。运行下列命令: 1234#进入conf.d目录cd /etc/nginx/conf.d#新建ghost.conf文件vim ghost.conf 复制粘贴下面的内容： 123456789server &#123; listen 80; server_name jiangkedev.com www.jiangkedev.com; #这里写你的域名或者ip地址 location / &#123; proxy_set_header X-Real-IP $remote_addr; proxy_set_header Host $http_host; proxy_pass http://127.0.0.1:2368;#这里是Ghost博客的运行端口 &#125;&#125; 保存退出，重启nginx： 12345#检查nginx配置文件是否正确nginx -t#配置正确的话就可以启动nginx服务service nginx restart#CentOS 7：systemctl restart nginx 浏览器运行输入：127.0.0.1:80查看nginx是否启动。 安装mysql&ensp;&ensp;&ensp;&ensp;安装Mysql的时候请注意你的云服务器是CentOS6系统还是CentOS7系统，对于CentOS7系统请注意：由于CentOS7系统抛弃了mysql改用mariadb，所以安装mysql之前你需要先卸载系统上mariadb相关的东西,如果不卸载的话会出下面的错误：为此你要像下面这样做： 123# yum list installed |grep mariadbmariadb-libs.x86_64 1:5.5.52-1.el7 @base## yum remove mariadb-libs.x86_64 Mysql的安装也有两种方法，一种是用CentOS的yum源上面的5.1版本mysql。安装方法如下： 12345678#安装mysqlyum install -y mysql-server#开启mysql服务 service mysqld start# 设置开机启动Mysql chkconfig mysqld on#这里设置你的mysql密码 mysqladmin -u root -p password ××× 如果你想安装更高版本的mysql，你需要采取下面的方法(不建议采取编译安装) 1234#CentOS6系统wget https://dev.mysql.com/get/mysql57-community-release-el6-11.noarch.rpm yum localinstal mysql57-community-release-el6-11.noarch.rpmyum install mysql-community-server 如果你是CentOS7系统则使用: 123456#CentOS7系统wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm yum localinstal mysql57-community-release-el6-11.noarch.rpmyum install mysql-community-serversystemctl enable mysqld.servicesystemctl start mysqld.service 请注意mysql5.7之后初始密码不为空，默认的初始密码位于/var/log/mysqld.log下面,设置初始密码的方式也变了可以用cat /var/log/mysqld.log|grep password查看初始密码。并且你需要用初始密码登录之后重新设置密码，不然会报错，下面是设置新的密码的过程（这里的关键在于初始密码必须符合规范:==设置的密码必须符合长度，且必须含有数字，小写或大写字母，特殊字符。==）： 1mysql&gt; SET PASSWORD = PASSWORD('your_new_password'); 如果修改的密码不符合策略会报错：在这之后如果你需要修改成为一个简单的密码，则需要修改密码策略。如何修改参考这里 编辑mysql的配置文件，该文件位于/etc/my.cnf将内容更改如下。主要作用是防止中文乱码 1234567891011121314151617181920[mysqld]character-set-server=utf8init_connect=&apos;SET NAMES utf8&apos;collation-server=utf8_general_cidatadir=/var/lib/mysqlsocket=/var/lib/mysql/mysql.sockuser=mysql# Disabling symbolic-links is recommended to prevent assorted security riskssymbolic-links=0[mysqld_safe]default-character-set=utf8log-error=/var/log/mysqld.logpid-file=/var/run/mysqld/mysqld.pid[client]default-character-set=utf8[mysql]default-character-set=utf8 保存之后重启mysql服务 12service mysqld restart#systemctl restart mysqld.service 以root身份登录数据库，并建立一个数据库 1create database ×××× 安装ghost1.8.1 建议去Ghost1.8的下载地址 123#装zip的解压软件yum install -y unzipunzip Ghost-1.8.1.zip -d /Blog/Ghost1.8.1 123cd /Blog/Ghost1.8.1#这里一定要用cnpm代替npm,不然很多包无法下载cnpm install 配置文件更改这一步非常关键,我安装的版本最Ghost博客的1.8版本，这个啊把那本相对0.7版本配置文件改成了纯json格式而非原来的js文件。配置文件位于Ghost的根目录之下名字叫做config.production.json，需要自己创建这里贴一个json的配置文件。内容如下: 12345678910111213141516171819202122232425262728293031323334353637383940414243&#123; "url": "http://www.jiangkedev.com", //这里写你的谷歌邮箱，以提供邮件服务 "mail": &#123; "transport": "SMTP", "options": &#123; "auth": &#123; "user": "",//账号 "pass": ""//密码 &#125; &#125; &#125;, //这里配置mysql数据库 "database": &#123; "client": "mysql", "connection": &#123; "host":"127.0.0.1", "user":"root",//用户 "password":"",//密码 "database":"",//数据库名称 "charset":"utf8"//编码 &#125;, "debug": "false" &#125;, "server": &#123; "host": "127.0.0.1", "port": "2368" &#125;, //储存配置，这里需要你安装相应的插件。 "storage": &#123; "active": "qn-store", "qn-store": &#123; "accessKey": "", "secretKey": "", "bucket": "", "origin": "", "fileKey": &#123; "safeString": "true", "prefix": "YYYYMM/" &#125; &#125; &#125;&#125; 初始化数据库在上面这些都做完之后，如果你直接运行node index.js会遇到下面的错误这就需要你初始化你的数据库： 12cnpm install -g knex-migratorknex-migrator init 运行node index.js就可以运行你的博客了。最后运行起来的效果是这样的： 部署ghost为了让你的ghost博客能够一直运行，我们需要用到一个工具叫做forever。 通过cnpm install forever -g安装 forever 为了让 forever 从 Ghost 安装目录运行，输入 NODE_ENV= production forever start index.js，记住一定要以产品模式启动。 通过 forever stop index.js 停止 Ghost 通过 forever list 或者ps -ef|grep index检查 Ghost 当前是否正在运行 参考资料：mysql初始密码及其设置 ghost官网 ghost博客安装问题]]></content>
+      <tags>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[令人印象深刻的游戏台词]]></title>
+    <url>%2F2017%2F12%2F30%2F%E4%BB%A4%E4%BA%BA%E5%8D%B0%E8%B1%A1%E6%B7%B1%E5%88%BB%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8F%B0%E8%AF%8D%2F</url>
+    <content type="text"><![CDATA[这是我是知乎上的回答，搬运过来作为一个记录认真整理一下，列出一些自己印象比较深刻（洗脑）的台词，当自己中二病犯的时候都不时会在心中默念的台词： 《星际争霸2》 我即是虫群 —来自星际争霸2虫群之心CG最后凯瑞甘的台词，虽然不玩星际争霸，但是我把星际的CG都补了一遍，这句台词配合CG里面的场景显得特别霸气。 《魔兽世界》 战火为何而燃，秋叶为何而落。天性不可夺，吾辈心中亦有惑。 怒拳为谁握，护国安邦惩奸恶，道法自然除心魔。 战无休而祸不息，吾辈何以为战？ ——来自熊猫人之谜CG，这个也是印象深刻。第一次玩魔兽世界是熊猫人版本末期，由于当时学校校园网下载速度太慢，因此呢在下载过程中会反复播放这段CG，当时简直被惊艳到了。之后我也反复看了这个CG很多篇，首先和湾湾的翻译相对比，我们的翻译水平很有中国风的韵味同时也很契合熊猫人版本的主题，做到了翻译中信达雅。 愿圣光指引你 ——一句很普通的话来自于艾尔文森林里面的NPC，但是NPC的话配上漂亮的艾尔文森林的风景让当时没有玩过网游的我觉得特别有feeling。 巫妖王：一切都结束了吗？我的父亲米奈希尔国王：结束了，王权没有永恒，我的孩子巫妖王：。。。我的眼前只有一篇黑暗 ——来自ICC副本，刷了N遍巫妖王直到AFK都没有出无敌；好多次打完的时候总会反复看这里的过场动画，觉得非常经典。 还有其它一些 旅行者，愿风指引你的道路 魔兽世界–种族并不能代表荣耀，我见过最高尚的兽人，也见过最卑劣的人类 ——来自一个很感人的任务《爱与家庭》，这句话弗丁说的，我玩wow的时候这个任务已经删掉了，没有办法亲自体验却是遗憾。说到弗丁，这里顺便批判一下现任的魔兽剧情设计师弗洛尔：对魔兽的剧情竭泽而渔，先是7.0害死弗丁、瓦王、沃金（主要是这些人死的毫无意义，在老人物牺牲的同时也没有塑造新的人物，这对魔兽剧情今后的发展很不利），然后雪藏吉安娜，结果版本末期我们竟然就这样封印的萨格拉斯。 《暗黑破坏神3》 你无权审判，我即是正义!—来自于天堂之上泰瑞尔和英普瑞斯的吵架，我就是看来这个我才入了暗黑3的坑的。 《黑暗之魂》 Ashen one, hearest thou my voice still? —来自与黑暗之魂3灭火结局，我喜欢黑暗之魂的一点就是：能让我认识到自己只是一个无火的余烬，但是通过不断的努力我能不断的成长，能和比我强很多倍的boss谈笑风声。 《辐射》 war, war never changes ——我玩过的《辐射4》和《辐射拉斯维加斯》的开头里面都有这句话，仔细一想这不就反应的辐射游戏的主题吗：即使在核战争过后，人们并没有从中吸取教训，仍旧因为意识形态的不同而纷争不断。（典型如学院、钢铁兄弟会、铁路之间非要弄得你死我活） 《仙剑4》 人生如一场虚空大梦，韶华白首，不过转瞬，唯有天道恒在，循环往复，不曾更改。 ——来自于与《仙剑4》结局动画慕容紫英说的，当时真的被感动的不行。高中的时候家里面和学校都管得很严，没有办法玩游戏，仙剑4作为进入大学后我第一个玩的单机游戏，从此带我进入了单机游戏的大坑。 《古剑1》 天下之之柔，驰骋天下之之坚，与剑术之道，你已悟得，我没有什么可教你的。此一战，紫胤真人阻不了百里屠苏，自行下山去吧。 ——来自于古剑1快结尾后，紫胤真人和百里屠苏的比武切磋之后说的，非常喜欢当时紫胤真人说话的气势，配音也超级好。 《尼尔机械纪元》 “这里是寄叶部队的2B……如果有人听到这封留言，我希望……你能帮忙转达……若你遇见寄叶部队的9S……我……想告诉他……抱歉，要给他的讯息是……9S，与你共度的日子……对我而言……是最灿烂的回忆……谢谢你……9……S……”]]></content>
+      <tags>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[番剧推荐]]></title>
+    <url>%2F2017%2F12%2F30%2F%E7%95%AA%E5%89%A7%E6%8E%A8%E8%8D%90%2F</url>
+    <content type="text"><![CDATA[我不喜欢给自己贴上宅男的表情，自己也算不上什么宅男。但是自己确实是一个游戏+漫画+番剧+电影的爱好者,要不我的博客为什么都用女生当头像呢？作为自己的博客，这篇文章将自己喜欢的番剧并加上自己的简评，满分10分。 《刀剑神域》评分：8分观后感：这个周（2017/9/15）刀剑神域的剧场即将在中国上映，版花了两天把刀剑神域第一部看完。除了女主角亚斯娜是我喜欢的类型，主题为科幻以外其他的地方真的喜欢不起来。作为一个科幻背景的动画片，并没有将VRMMO中科幻这个背景作为更深层次的讨论，还停留在主角“打怪练级”的层次上面，全篇的主线存在感不强。整个第一部看点之一就是主角和众多女角色的后宫戏了。 《叛逆的鲁鲁修》 《新世纪福音战士》 《fate/stay night》 待更]]></content>
+      <tags>
+        <tag>动漫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux软件自动安装脚本]]></title>
+    <url>%2F2017%2F12%2F30%2FLinux%E8%BD%AF%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[当你购买了一台云主机的时候，不管你是用作什么。一些Linux命令行工具和开发环境都是必备的，为了免去自动安装的烦恼，我这里写了一个自动安装的脚本,将脚本拷贝到一个文件里面如:Install.sh,用法：12$chmod u+x Install.sh$sh Install.sh Linux常用软件/环境 man 一般来说这个工具是Linux自带的，有时也需要自己手动添加，用于查看帮助 vim 一个强大的文本编辑器，vi的扩展 git 可以理解为Github的客户端，方便你去github下载东西 tree 显示你的目录的树形结构 gcc c语言编译器 gcc-c++ c++编译器 uzip zip解压工具 mysql 常用数据库 自动安装脚本1234567891011121314151617181920212223242526272829303132333435363738394041!/bin/bash#Linux常用命令/软件自动安装脚本echo "Linux内核信息："uname -aecho "CentOS版本信息"cat /etc/centos-release#rpm -q centos-releasepakage_list=(man vim git tree gcc gcc-c++ unzip mysql)#用于检查rpm包是否安装的函数check_rpm()&#123; pakage_name=$1 echo "======================================================================================" echo "正在检查软件包：$1 是否安装" if [[ $(rpm -qa $pakage_name)] == *$pakage_name* ]];then echo -e "\e[33m Pakege $pakage_name 已经安装 \e[0m" elif [[ $(rpm -qa|grep $pakage_name) == *$pakage_name* ]];then echo -e "\e[33m Pakege $pakage_name 已经安装 \e[0m" else echo -e "\e[42m Pakege $pakage_name 未安装 \e[0m" echo -e "\e[34m 正在安装 $pakage_name ... \e[0m" yum install -y -q $pakage_name if [ $? -eq 0 ] then echo "Pakege $pakage_name 安装成功" else echo -e "\e[31m Pakege $pakage_name 安装失败 \e[0m" fi fi&#125;Test=git#check_rpm $Testfor pakage in $&#123;pakage_list[@]&#125;do check_rpm $&#123;pakage&#125;doneexit 0 待更： 添加java自动安装程序 添加nodejs自动安装程序]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[spring注解使用总结]]></title>
+    <url>%2F2017%2F12%2F30%2Fspring%E6%B3%A8%E8%A7%A3%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[Spring新的版本中已经逐渐抛弃原来那种繁杂的xml配置方式，进而采用“约定优于配置的原则”利用java里面的注解(Annotation来简化配置)，所以对常用注解的熟练掌握是必须的。 @Autowired@Autowired注解可用于标注setter方法，属性和构造器，该注解用于自动装配(构造对象)，省去在XML文件中配置的烦恼,并且可以通过该方法来省去get,set方法的烦恼。123456789public class Boss &#123; @Autowired private Car car; @Autowired private Office office; … &#125; @Component,@Controller,@Repository,@Service这几个注解均作用于类，默认情况下：Spring配置文件中的context:component-scan/将扫描这些注解所标注的类，并将它们自动注册为Spring Bean。Bean的默认ID为非限定类名，且以小写字母开始@Component——通用的构造型注解，标识该类为Spring的组件。@Controller——标识该类为Spring MVC controller@Repository——标识该类定义为数据仓库@Service——标识该类定义为服务。12345678910111213@Componentpublic class MessagePrinter &#123; private final MessageService service; @Autowired public MessagePrinter(MessageService service) &#123; this.service = service; &#125; public void printMessage() &#123; System.out.println(this.service.getMessage()); &#125;&#125; @ComponentScan该注解用于类，作用和Spring配置文件中的context:component-scan元素一致，它将扫描对应包下面用@Controller,@Component,@Service,@Repository等注解标注的类并将它们自动注册为Bean。123@ComponentScanpublic class Application &#123;&#125; @Configuration,@Bean@Configuration注解用于类，等价于XML配置文件中的元素，它告诉Spring该类中将包含一个或者多个Spring Bean的定义@Bean是一个针对方法的注解，它和XML配置文件里面的元素是对应的。@Bean告诉Spring这个方法将返回一个对象，该对象应该被注册为Spring应用上下文中的一个Bean，方法名作为该Bean的ID，在该方法中所实现的所有逻辑本质上都是为了创建Bean。1234567@Configurationpublic class AppConfig &#123; @Bean public TransferService transferService() &#123; return new TransferServiceImpl(); &#125;&#125; ​ #参考资料 Spring官方文档 《Spring in action》]]></content>
+      <tags>
+        <tag>Spring</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vim配置文件示例]]></title>
+    <url>%2F2017%2F12%2F30%2FVim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B%2F</url>
+    <content type="text"><![CDATA[初用vim有几点地方是必须更改的：字符集、Tab缩进、高亮。下面总结了一个简单的vim配置文件 首先12cd ~touch vimrc 填入如下内容1234567891011121314151617181920212223242526272829303132333435363738394041&quot; 文件编码set fileencoding=utf-8set encoding=utf-8set termencoding=utf-8​&quot; 开启语法高亮syntax enable​&quot; 防止在文件末尾追加换行符set noendoflineset binary​&quot; 制表宽度set softtabstop=4set tabstop=4set shiftwidth=4set expandtab​&quot; 自动缩进对齐set autoindent​&quot; 显示行号&quot; set nu​&quot; 设置背景, 影响vim显示&quot;set bg=dark​&quot; 代码折叠&quot; set foldmethod=indent​&quot; backspace功能set backspace=indent,eol,start​&quot; 总是显示tab栏, 需要vim7&quot; set showtabline=2​&quot; 高亮搜索词set hlsearch​&quot; 显示光标所在行号set ruler 更为复杂的暂时用不到，待更]]></content>
+      <tags>
+        <tag>软件配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[开发计划]]></title>
+    <url>%2F2017%2F12%2F30%2F%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92%2F</url>
+    <content type="text"><![CDATA[写一个七牛云上床的工具。]]></content>
+      <tags>
+        <tag>软件开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[windows必备软件盘点]]></title>
+    <url>%2F2017%2F12%2F30%2Fwindows%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6%E7%9B%98%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[前言&ensp;&ensp;&ensp;&ensp;以前我总是做一个得过且过的人，电脑上总是一大堆的垃圾软件，在走上程序员这条路之后自己的软件洁癖也越来越高。这篇文章主要介绍能够加强windows使用体验的一系列软件,也作为自己收集的常用软件的一个盘点，万一那天重装电脑还指望着这篇文章呢！ 程序员篇1. cmder一个windows命令行替代者(开源)软件介绍&ensp;&ensp;&ensp;&ensp;作为一个程序员,windows上面的不管是cmd还是powershell都实在难用。难用的原因在于缺少ssh,curl,nslookup,grep等常用的命令,虽然说有一系列的弥补方法，那为什么我们不一劳永逸的解决呢？cmder正是抓住的这些痛点。 使用技巧 cmder默认有好几种模式可以在右键菜单-&gt;setting-&gt;Startup-&gt;Specific name task里面选择默认的启动模式。 cmder官网 cmder github托管地址 2. snipaste非常实用的截图工具(免费)软件介绍&ensp;&ensp;&ensp;&ensp;平时我们用的qq截图和windows截图都显得过于简陋，snipaste这个软件实习的同事推荐的，作为一个国产软件它以其以极简主义的风格和实用的功能牢牢抓住了我的内心。 主要亮点： 贴图功能：可以将文字&lt;Ctr+C&gt;负责之后，再按F3将文字贴为图片。 使用技巧补充说明: 官网 官方介绍 3. Xshell一个ssh远程连接工具(教育版免费)软件介绍&ensp;&ensp;&ensp;&ensp;Xshell相对于普通的ssh工具来说，它的优势主要在于可以同时管理多个远程主机。软件本身是收费的，但是你使用的时候可以申请教育版。Xshell官网 4.vscode微软出品的开源代码编辑器(开源)软件介绍&ensp;&ensp;&ensp;&ensp;vscode相对于sublime，UltraEdit等软件来说就是开源免费，并且有软件作为强大的技术支撑。一般用来写作前端代码，对一般人来说可以作为一个功能强大的免费的文本编辑器。 使用技巧vscode官网 普通用户篇1. 迅雷急速版（免费）软件介绍新版的迅雷广告太多而且多杂乱无章，那么迅雷急速版将是一个很好的选择下载链接提取码: 2. 福昕PDF阅读器(免费)&ensp;&ensp;&ensp;&ensp;你是不不能忍受adobe默认的pdf阅读器那个丑陋的样子？福昕PDF阅读器完全能够满足你日常的大多数pdf需求，而且字体渲染效果很好不会缺胳膊少腿的。福昕PDF阅读器官网 3. Visio(付费)&ensp;&ensp;&ensp;&ensp;微软出品的专业的画图工具，可以画UML，流程图等画出来的矢量图效果非常棒。 4.google浏览器&ensp;&ensp;&ensp;&ensp;做浏览器还是ggogle实在，比国内的一帮公司好多了。google浏览器百度云下载链接 5.杀毒软件&ensp;&ensp;&ensp;&ensp;win10还用装安全软件？windows自带的windows defender足够了 其他 SpaceSniffer一个磁盘占用空间查看软件，主要功能是扫描你的电脑并以图形化的方式显示磁盘的占用情况]]></content>
+      <tags>
+        <tag>开发环境</tag>
+        <tag>装机软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[仙剑4通关有感]]></title>
+    <url>%2F2017%2F12%2F30%2F%E4%BB%99%E5%89%914%E9%80%9A%E5%85%B3%E6%9C%89%E6%84%9F%2F</url>
+    <content type="text"><![CDATA[这篇文章主要内容写于2013/2/6日，是在前不久整理电脑发现的，没想到还遗留在自己的电脑之中，原来将这篇文章发在浪博客上面今天就顺便把它搬到自己的博客上吧。 今日之感以今天的眼光来看，2007年的仙剑4只能算是一个素质中等偏下游戏。只是单年初如单机单机游戏的坑觉得游戏里面的一些东西很惊艳，现在看来当年写的有点幼稚。为什么这么说呢？因为2007是一个神作井喷的年代，我们来看2007年都出过那些比较出名的游戏呢 巫师1。巫师系列，最新一部《巫师3》可能是目前为止最伟大的RPG游戏。 神秘海域1。这个游戏去年出了系列最后一部，是去年玩家心目中的准年度最佳游戏。 女神异闻录3。今年出了续作《女神异闻录5》，今年最好的JRPG游戏。已经列入心愿清单。 质量效应1。巫师之前最好的RPG，质量效应三部曲开创一个宏大的太空歌剧。 生化危机4。今年出了《生化危机6》，虽然我不喜欢也没有买，但是生化4当年我玩了不下5遍。 光环3。这个不用说了吧，微软的看家FPS。 使命召唤4 生化奇兵 孤岛危机 那对于《仙剑4》来说，优缺点又有哪些呢？优点： 剧情感人。 世界观宏大。 在国产游戏，质量做到了中上。 迷宫做的还行。 缺点： 画质不算好。 流程被阉割过。 某些彩蛋让人觉得有刻意买惨的嫌疑。 以下是当年我写的通关有感： 仙剑4通关有感&ensp;&ensp;&ensp;&ensp;怎么说呢，仙剑四是我打完的第一部RPG游戏，好歹也要写一篇文章纪念一下。放假在家闲着无聊，只有靠看电影打发时间；突然有一天，心血来潮，就去下载了仙剑四。下面主要从仙剑4的风景、人物、剧情以及国产单机游戏现状来展开这一篇文章。&ensp;&ensp;&ensp;&ensp;因为没有接触多少单机游戏的原因，在我看来游戏中的人物风景还是做的美轮美奂的了，说说印象最深的几个场景吧。杜甫诗云：会当凌绝顶，一览众山小；云天河在青鸾峰上往下眺望虽然说只能看见一片白色，毫无远景可言。但是看着周围的一切：小溪流水，山顶人家。足够让人心旷神怡的了，要我说在周围的一切的衬托下，这难道不是人间仙境吗？仙剑制作者一定汲取了中国山水画的优点吧，而水墨山水画也恰恰是我喜欢的。第二处是即墨的还海景，俗话说：仁者乐山，智者乐水。难道我是智者？（偷笑）平静的海边，悠闲的人们，当然最让我眼前一亮的是沙滩上的阳光：给人一种暖暖的感觉，生活在其中一定是非常悠闲。比起青鸾峰上好的就是这里可以看见海中远景，为一遗憾的是这里缺少往来的船只；要不让还真是有一种孤帆远影碧空尽，唯见长江天际流的感觉。第三处当之无愧的是不周山的天空，阴沉阴沉真的是有点恐怖！下面怪石从生，上面的云朵能透出点点光芒要我说这就是把现实中的天空贴上去以后形成的效果，不过哈阴暗的气氛还真是适合云天河要去地狱去寻找影翳枝的剧情。&ensp;&ensp;&ensp;&ensp;云天河“天若悬河”自小住在山上，真是过着一种神仙般的生活啊。整个游戏中他给我的印象就是涉世未深，憨厚老实，正直勇敢，坦率直白；为了弄清爹娘的事随着韩菱纱下山，为了凌霄去寻找三寒器，为了柳梦璃而闯鬼界，为了山下的人民免受九天玄女的处罚而逆天而行最终导致双目失明…。在我印象中云天河说的话令我印象最深是：“我命在我不在天！”，难道真是如此吗？或许吧！总的来说在现在的社会里找不出这样的人是肯定的。韩菱纱呢？最开始看到这位女主角还真是令人眼前一亮啊！连我都不得不赞叹还真是漂亮，话说我又没有看过多少美女，要么这么说我看过太多美女！很矛盾吧，其实不然。只要你打开浏览器输入美女，一下子就能跳出来N多“美女”不是吗？但是她们真的很美吗？仁者见仁，智者见智吧。但有一点是肯定的，她们看多了以后就不会再美丽也没有东西让她们继续美丽，美丽的或许是是美丽本身，但是让美丽继续美丽的必然是事物本身！不是吗？菱纱的性格倒是和仙剑3里面的雪见有点相似，面对自己只有所剩不多的阳寿任然乐观，她所做的事更加突出了她的美丽吧！再来谈一谈梦璃吧，她给人的感觉总是带有淡淡的忧伤，与天河有缘无份真是一个悲剧。“谁言别后终无悔，寒月清宵寄梦回；深知心在情常在，前程不共彩云飞。”多么优美的诗句啊，暗含了别后淡淡的忧伤。“留”“梦”“离”，知道她名字的深意了吧！最后谈一谈慕容紫英，这一为主角出现在游戏的中期，我对他来说也没有多的印象，对他来说关键词就是转变吧：从一个对妖恨之入骨的琼华派弟子，在天河的影响下彻底改变，为了保护幻暝界，保护梦璃而不惜和琼华派作对。要说网上流传的他对韩菱纱的爱慕之情，我可是一点都没有看出来。&ensp;&ensp;&ensp;&ensp;要说为什么去下载仙剑4的原因，当然是百度了一下，很多人都说仙剑4的剧情是倍经典。那我就来谈一谈三个地方吧：第一是琼华派的修仙之法，刚开始接触游戏中的妖界时，第一反应就是最后的boss肯定就是什么的妖界之王什么的，这样难免使剧情落入俗套。然而后续剧情确实惊艳！琼华派的修仙之法就是利用伏羲望舒两剑，束缚妖界以夺取其灵力来达到自己白日飞升的目的。没想到最后的剧情来了这么大反转，我不禁感叹人们为了自己的私欲还真是什么事都干得出来啊，而且还不忘为之编造一个堂而皇之的目的“除魔卫道”。难道我们的世界不是一样吗？第二一个是九天玄女所说的天道，“天神只是天道的执行者而不是天道的制定者”这个想法很是新颖，“天河的一句我命由我不由天！逆天而行，拉动后裔射日弓射下即将坠下的琼华派”，然而殊不知道这也是天道的一部分，就像那句被说厌的台词“冥冥之中自有天意”。要说最令我难忘要数那个令人感伤的结尾的，100年后…紫英白发苍苍对赶来的梦璃说“你来了”“无所谓好或不好，人生不过一场虚空大梦，韶华白首不过转瞬”随后御剑而走，尤其是后一句真是令人感伤啊！就像断臂的维纳斯一样，仙剑4的结尾有一种残缺美 ，留给我们无尽的想象空间。天河所住房子旁有两所墓，一所是韩菱纱的，一所是或许是他为自己留的吧！在烛龙之息的保护下，天河百年未老，但是终究要归于尘土。在网上看见一种很是恶搞的说法那所坟墓是上海软星自己的……&ensp;&ensp;&ensp;&ensp;在当代的中国人们缺乏对知识产权应有的尊重，各种盗版横行于世，不得不说是一种悲剧。(我也是玩的盗版仙剑4)上海软星解散的原因虽然复杂，但是盗版绝对是原因之一。在最开 始看见网上下载歌曲收费的新闻时觉得很愤怒，然而在细想之下也有一定道理，当然在不贵的前提下。所以让我们对那些免费的书籍文章资源等保留一份应有的尊重吧！ 后记所以去年开始我入坑steam，从此和盗版说拜拜，而仙剑4已经于2017-9-6号在steam上发售，所以可以补票了！]]></content>
+      <tags>
+        <tag>游戏评测</tag>
+        <tag>游戏心得</tag>
+      </tags>
+  </entry>
+</search>
