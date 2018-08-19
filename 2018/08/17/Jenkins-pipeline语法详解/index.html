@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="Jenkins Pipeline 就是一系列的插件集合，可通过组合它们来实现持续集成和交付的功能。 通过Pipeline DSL为我们提供了一个可扩展的工具集，将简单到复杂的逻辑通过代码实现。 通常，我们可以通过编写Jenkinsfile将管道代码化，并且纳入到版本管理系统中。比如： 1234567891011121314151617181920212223// Declarative //pip">
+<meta name="description" content="Jenkins Pipeline 就是一系列的插件集合，可通过组合它们来实现持续集成和交付的功能。 通过Pipeline DSL为我们提供了一个可扩展的工具集，将简单到复杂的逻辑通过代码实现。">
 <meta name="keywords" content="Jenkins">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins pipeline语法详解">
 <meta property="og:url" content="http://www.jiangkedev.com/2018/08/17/Jenkins-pipeline语法详解/index.html">
 <meta property="og:site_name" content="白云孤鹜齐飞的博客">
-<meta property="og:description" content="Jenkins Pipeline 就是一系列的插件集合，可通过组合它们来实现持续集成和交付的功能。 通过Pipeline DSL为我们提供了一个可扩展的工具集，将简单到复杂的逻辑通过代码实现。 通常，我们可以通过编写Jenkinsfile将管道代码化，并且纳入到版本管理系统中。比如： 1234567891011121314151617181920212223// Declarative //pip">
+<meta property="og:description" content="Jenkins Pipeline 就是一系列的插件集合，可通过组合它们来实现持续集成和交付的功能。 通过Pipeline DSL为我们提供了一个可扩展的工具集，将简单到复杂的逻辑通过代码实现。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://otoqvu1n9.bkt.clouddn.com/jenkins07-20188192066.png">
 <meta property="og:image" content="http://otoqvu1n9.bkt.clouddn.com/jenkins08-201881920627.png">
@@ -96,10 +96,10 @@
 <meta property="og:image" content="http://otoqvu1n9.bkt.clouddn.com/jenkins13-2018819201041.png">
 <meta property="og:image" content="http://otoqvu1n9.bkt.clouddn.com/jenkins14-2018819201155.png">
 <meta property="og:image" content="http://otoqvu1n9.bkt.clouddn.com/jenkins15-2018819201238.png">
-<meta property="og:updated_time" content="2018-08-19T12:48:33.423Z">
+<meta property="og:updated_time" content="2018-08-19T12:49:43.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins pipeline语法详解">
-<meta name="twitter:description" content="Jenkins Pipeline 就是一系列的插件集合，可通过组合它们来实现持续集成和交付的功能。 通过Pipeline DSL为我们提供了一个可扩展的工具集，将简单到复杂的逻辑通过代码实现。 通常，我们可以通过编写Jenkinsfile将管道代码化，并且纳入到版本管理系统中。比如： 1234567891011121314151617181920212223// Declarative //pip">
+<meta name="twitter:description" content="Jenkins Pipeline 就是一系列的插件集合，可通过组合它们来实现持续集成和交付的功能。 通过Pipeline DSL为我们提供了一个可扩展的工具集，将简单到复杂的逻辑通过代码实现。">
 <meta name="twitter:image" content="http://otoqvu1n9.bkt.clouddn.com/jenkins07-20188192066.png">
 
 
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-19T20:48:33+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-19T20:49:43+08:00">
                 2018-08-19
               </time>
             
@@ -387,6 +387,7 @@
 
       
         <p>Jenkins Pipeline 就是一系列的插件集合，可通过组合它们来实现持续集成和交付的功能。 通过Pipeline DSL为我们提供了一个可扩展的工具集，将简单到复杂的逻辑通过代码实现。</p>
+<a id="more"></a>
 <p>通常，我们可以通过编写Jenkinsfile将管道代码化，并且纳入到版本管理系统中。比如：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Declarative //</span></span><br><span class="line">pipeline &#123;</span><br><span class="line">    agent any ①</span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(<span class="string">'Build'</span>) &#123; ②</span><br><span class="line">            steps &#123; ③</span><br><span class="line">                sh <span class="string">'make'</span> ④</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(<span class="string">'Test'</span>)&#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">'make check'</span></span><br><span class="line">                junit <span class="string">'reports/**/*.xml'</span> ⑤</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(<span class="string">'Deploy'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">'make publish'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Script //</span></span><br><span class="line">node &#123;</span><br><span class="line">    stage(<span class="string">'Build'</span>) &#123;</span><br><span class="line">        sh <span class="string">'make'</span></span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">'Test'</span>) &#123;</span><br><span class="line">        sh <span class="string">'make check'</span></span><br><span class="line">        junit <span class="string">'reports/**/*.xml'</span></span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">'Deploy'</span>) &#123;</span><br><span class="line">        sh <span class="string">'make publish'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
